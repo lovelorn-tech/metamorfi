@@ -1,0 +1,23 @@
+@use "global.scss" as g;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 100%;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  max-width: g.toRem(1500);
+  margin: auto;
+  background-color: g.$light;
+}
+
+.dark {
+  background-color: g.$dark;
+}

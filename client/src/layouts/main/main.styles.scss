@@ -1,0 +1,40 @@
+@use "../../global.scss" as g;
+
+.main-layout {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+
+    & > .header-container {
+        position: absolute;
+        width: 80%;
+        top: 0;
+        margin: g.toRem(20) 0;
+        z-index: 100;
+    }
+    
+    & > main {
+        position: absolute;
+        top: g.toRem(100);
+        width: calc(80% - g.toRem(20));
+        border-radius: g.toRem(20);
+        padding: g.toRem(10);
+        box-shadow: g.toRem(9) g.toRem(9) g.toRem(18) g.$light-soft, g.toRem(-9) g.toRem(-9) g.toRem(18) g.$light-ultra;
+    }
+}
+
+@media (max-width: g.toRem(479.98)) {
+    .main-layout {
+        & > .header-container {
+            width: 90%;
+        }
+
+        & > main {
+            width: calc(90% - g.toRem(20));
+        }
+    }
+}

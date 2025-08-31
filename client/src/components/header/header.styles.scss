@@ -1,0 +1,142 @@
+@use "../../global.scss" as g;
+
+.header {
+    width: 100%;
+    height: g.toRem(60);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: g.toRem(20);
+    background-color: g.$light;
+    box-shadow: g.toRem(9) g.toRem(9) g.toRem(18) g.$light-soft, g.toRem(-9) g.toRem(-9) g.toRem(18) g.$light-ultra;
+
+    & > .header-left {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: g.toEm(20);
+
+        & > button {
+            font-size: g.toEm(16);
+            color: g.$dark;
+            padding: g.toEm(10) g.toEm(15);
+            border: none;
+            border-radius: g.toRem(14);
+            background: none;
+            box-shadow: g.toRem(9) g.toRem(9) g.toRem(12) g.$light-soft, g.toRem(-9) g.toRem(-9) g.toRem(12) g.$light-ultra;
+            cursor: pointer;
+
+            &:active {
+                box-shadow: inset g.toRem(6) g.toRem(6) g.toRem(12) g.$light-soft, inset g.toRem(-6) g.toRem(-6) g.toRem(12) g.$light-ultra;
+            }
+        }
+
+        & > a {
+            text-decoration: none;
+            font-size: g.toEm(26);
+            font-weight: 700;
+            color: g.$dark;
+            margin-left: g.toRem(20);
+        }
+    }
+
+    & > .header-form-search {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 30%;
+
+        & > input {
+            width: 100%;
+            font-size: g.toEm(16);
+            color: g.$dark-ultra;
+            padding: g.toEm(7) g.toEm(12);
+            outline: none;
+            background: none;
+            border: none;
+            border-radius: g.toRem(10);
+            box-shadow: g.toRem(9) g.toRem(9) g.toRem(12) g.$light-soft, g.toRem(-9) g.toRem(-9) g.toRem(12) g.$light-ultra;
+
+            &:focus{
+                box-shadow: inset g.toRem(6) g.toRem(6) g.toRem(12) g.$light-soft, inset g.toRem(-6) g.toRem(-6) g.toRem(12) g.$light-ultra;
+            }
+        }
+
+        & > button {
+            position: absolute;
+            right: 0;
+            font-size: g.toEm(16);
+            color: g.$dark-ultra;
+            padding: g.toEm(7) g.toEm(12);
+            background: none;
+            border: none;
+            border-radius: 0 g.toRem(10) g.toRem(10) 0;
+            cursor: pointer;
+        }
+    }
+
+    & > .header-right {
+        display: flex;
+        justify-content: flex-end;
+
+        & > button {
+            font-size: g.toEm(16);
+            color: g.$dark;
+            padding: g.toEm(10) g.toEm(15);
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            &:hover {
+                transition: 0.3s;
+                color: g.$secondary;
+            }
+        }
+
+        & > .header-profile-container {
+            width: g.toRem(50);
+            height: g.toRem(50);
+            border-radius: g.toRem(20);
+            margin: 0 g.toRem(10);
+            cursor: pointer;
+            background-color: g.$light-soft;
+            overflow: hidden;
+
+            & > img {
+                width: 100%;
+                height: 100%;
+                vertical-align: top;
+                object-fit: fill;
+                aspect-ratio: 1/1;
+
+                &:hover {
+                    transition: 0.3s;
+                    filter: brightness(80%);
+                }
+            }
+        }
+    }
+
+    & > .header-right-off {
+        display: flex;
+        justify-content: flex-end;
+
+        & > a {
+            text-decoration: none;
+            font-size: g.toEm(16);
+            color: g.$light;
+            padding: g.toEm(10) g.toEm(15);
+            margin: 0 g.toRem(10);
+            background-color: g.$primary;
+            border: none;
+            border-radius: g.toRem(20);
+            box-shadow: g.toRem(7) g.toRem(7) g.toRem(12) g.$light-soft, 0 0 g.toRem(9) g.$primary;
+            cursor: pointer;
+
+            &:hover {
+                box-shadow: 0 0 g.toRem(7) g.$primary;
+            }
+        }
+    }
+}

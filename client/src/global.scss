@@ -1,0 +1,24 @@
+@use "sass:math";
+
+@function toRem($value){
+    @return math.div($value, 16) + rem; 
+}
+
+@function toEm($value){
+    @return math.div($value, 16) + em; 
+}
+
+$light: #e6eaef;
+$light-ultra: #f5f7fa; 
+$light-soft: #cfd6df; 
+$dark: #343739;
+$dark-ultra: #1b1c1e;
+$dark-soft: #3f3f3f;
+$muted: #667085;
+$primary: #4f6ef7;
+$secondary: hsl(308 100% 51.1%);
+
+// $light-hover: hsla(0, 0%, 33%, 0.2);
+// $dark-hover: hsla(0, 0%, 66%, 0.2);
+// $pop-up-light: hsla(281, 30%, 62%, 0.6);
+// $pop-up-dark: hsla(281, 30%, 42%, 0.6);
