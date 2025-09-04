@@ -1,0 +1,123 @@
+@use "../../global.scss" as g;
+
+.input-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: g.toRem(10);
+
+  & > label {
+    margin-left: g.toRem(10);
+    font-size: g.toEm(16);
+    color: g.$dark;
+    font-weight: normal;
+    font-style: normal;
+    padding: g.toEm(7) 0;
+    z-index: 100;
+  }
+
+  & > input,
+  & > textarea,
+  & > select {
+    resize: none;
+    width: calc(100% - g.toEm(26));
+    font-size: g.toEm(16);
+    color: g.$dark-ultra;
+    padding: g.toEm(7) g.toEm(12);
+    background: none;
+    outline: none;
+    border: none;
+    border-radius: g.toRem(10);
+    box-shadow: g.toRem(9) g.toRem(9) g.toRem(12) g.$light-soft,
+      g.toRem(-9) g.toRem(-9) g.toRem(12) g.$light-ultra;
+  }
+
+  & > select {
+    width: 100%;
+
+    &:focus {
+      border-width: g.toRem(2);
+    }
+
+    & > option {
+      background-color: g.$light-ultra;
+    }
+  }
+
+  & > input,
+  & > textarea {
+    &:focus {
+      box-shadow: inset g.toRem(6) g.toRem(6) g.toRem(12) g.$light-soft,
+        inset g.toRem(-6) g.toRem(-6) g.toRem(12) g.$light-ultra;
+    }
+
+    &::placeholder {
+      color: g.$muted;
+      font-style: italic;
+    }
+  }
+
+  & > small {
+    font-size: g.toEm(14);
+    color: g.$primary;
+    font-weight: normal;
+    font-style: italic;
+    padding: g.toEm(3);
+    margin-left: g.toRem(10);
+  }
+}
+
+.border-input-ok {
+  border: g.toRem(1) solid g.$dark;
+  background: none;
+
+  &:focus {
+    background-color: hsla(0, 0%, 70%, 0.3);
+  }
+}
+
+.border-input-err {
+  border: g.toRem(1) solid g.$primary;
+  background-color: g.$light;
+}
+
+// DARK MODE
+.dark .input-container > label {
+  color: g.$light-ultra;
+  text-shadow: 0 0 g.toRem(3) g.$light-ultra;
+}
+
+.dark .input-container > input,
+.dark .input-container > textarea,
+.dark .input-container > select {
+  color: g.$light-ultra;
+}
+
+.dark .input-container > select > option {
+  background-color: g.$dark-ultra;
+}
+
+.dark .input-container > input::placeholder,
+.dark .input-container > textarea::placeholder {
+  color: #777777;
+}
+
+.dark .input-container > small {
+  color: g.$secondary;
+}
+
+.dark .border-input-ok {
+  border: g.toRem(1) solid g.$light;
+  background: none;
+}
+
+.dark .border-input-ok:focus {
+  background-color: hsla(0, 0%, 30%, 0.3);
+}
+
+.dark .border-input-err {
+  border: g.toRem(1) solid g.$primary;
+  background-color: hsla(0, 100%, 70%, 0.3);
+}

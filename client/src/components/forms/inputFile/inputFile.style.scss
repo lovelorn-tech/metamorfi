@@ -1,0 +1,76 @@
+@import "../input.style.scss";
+
+.input-file-container {
+  width: 100%;
+  font-family: "Gilroy";
+  overflow: hidden;
+}
+
+.input-file-fake {
+  position: relative;
+  min-width: 100%;
+  background-color: $light-soft;
+  border: none;
+  border-radius: toRem(10);
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.input-file-fake:active {
+  box-shadow: inset 0 0 toRem(5) $dark;
+}
+
+.input-file-fake > label {
+  position: absolute;
+  text-align: center;
+  font-size: toEm(18);
+  font-family: "Gilroy";
+  font-weight: 500;
+  color: $dark;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  pointer-events: none; // Prevent show dialog on label click
+  z-index: 2;
+}
+
+.input-file-fake > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: toRem(10);
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+  object-fit: fill;
+  aspect-ratio: 1/1;
+  z-index: 1;
+}
+
+.input-file {
+  display: none;
+}
+
+.input-file-container > small {
+  font-size: toEm(14);
+  color: $primary;
+}
+
+// DARK MODE
+.dark .input-file-fake > label {
+  color: $light-ultra;
+}
+
+.dark .input-file-container > small {
+  color: $secondary;
+}
+
+.dark .input-file-fake {
+  background-color: $dark-ultra;
+}
+
+.dark .input-file-fake:active {
+  box-shadow: inset 0 0 toRem(5) $light-soft;
+}

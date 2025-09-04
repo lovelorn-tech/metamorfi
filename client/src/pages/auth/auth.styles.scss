@@ -1,0 +1,59 @@
+@use "../../global.scss" as g;
+
+.auth-page {
+  width: 95%;
+  max-width: g.toRem(1024);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+
+  & > form {
+    width: calc(100% - g.toRem(20));
+    margin: g.toRem(10) 0;
+    padding: g.toRem(10);
+    border-radius: g.toRem(20);
+    box-shadow: g.toRem(9) g.toRem(9) g.toRem(18) g.$light-soft,
+      g.toRem(-9) g.toRem(-9) g.toRem(18) g.$light-ultra;
+
+    & > .form-actions {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & > button {
+        font-size: g.toEm(16);
+        padding: g.toEm(10) g.toEm(25);
+        margin: g.toRem(10) g.toRem(20);
+        cursor: pointer;
+        border: none;
+        border-radius: g.toRem(10);
+      }
+
+      & > .btnSubmit {
+        color: g.$light-ultra;
+        background-color: g.$primary;
+        box-shadow: g.toRem(7) g.toRem(7) g.toRem(12) g.$light-soft,
+          0 0 g.toRem(9) g.$primary;
+
+        &:active {
+          box-shadow: inset 0 0 g.toRem(5) g.$dark-soft;
+        }
+      }
+
+      & > .btnClear {
+        color: g.$dark;
+        background: none;
+        box-shadow: g.toRem(7) g.toRem(7) g.toRem(12) g.$light-soft,
+          g.toRem(-7) g.toRem(-7) g.toRem(12) g.$light-ultra;
+
+        &:active {
+          box-shadow: inset g.toRem(7) g.toRem(7) g.toRem(12) g.$light-soft,
+            g.toRem(-7) g.toRem(-7) g.toRem(12) g.$light-ultra;
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 // Layouts
 import MainLayout from "../layouts/main/Main.layout";
+import AuthPage from "../pages/auth/Auth.page";
 
 // Pages
 import  HomePage  from "../pages/home/Home.page";
@@ -14,4 +15,8 @@ export const routes = [
             { path: "/product/:id", element: <ProductPage/>}
         ],
     },
+    {
+        path: "/auth",
+        element: <AuthPage/>
+    }
 ];
