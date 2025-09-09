@@ -27,11 +27,11 @@
             border: none;
             border-radius: g.toRem(14);
             background: none;
-            box-shadow: g.toRem(9) g.toRem(9) g.toRem(12) g.$light-soft, g.toRem(-9) g.toRem(-9) g.toRem(12) g.$light-ultra;
+            box-shadow: g.$box-shadow-light;
             cursor: pointer;
 
             &:active {
-                box-shadow: inset g.toRem(6) g.toRem(6) g.toRem(12) g.$light-soft, inset g.toRem(-6) g.toRem(-6) g.toRem(12) g.$light-ultra;
+                box-shadow: g.$box-shadow-light-inset;
             }
 
             & > p {

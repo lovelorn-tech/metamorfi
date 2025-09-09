@@ -18,7 +18,15 @@ $muted: #667085;
 $primary: #4f6ef7;
 $secondary: hsl(308 100% 51.1%);
 
-// $light-hover: hsla(0, 0%, 33%, 0.2);
-// $dark-hover: hsla(0, 0%, 66%, 0.2);
-// $pop-up-light: hsla(281, 30%, 62%, 0.6);
-// $pop-up-dark: hsla(281, 30%, 42%, 0.6);
+$box-shadow-light: toRem(9) toRem(9) toRem(12) $light-soft,
+          toRem(-9) toRem(-9) toRem(12) $light-ultra;
+$box-shadow-secondary: toRem(7) toRem(7) toRem(12) $light-soft,
+      0 0 toRem(9) $secondary;
+$box-shadow-primary: toRem(7) toRem(7) toRem(12) $light-soft,
+        0 0 toRem(9) $primary;
+
+$box-shadow-light-inset: inset toRem(7) toRem(7) toRem(12) $light-soft,
+          toRem(-9) toRem(-9) toRem(12) $light-ultra;
+$box-shadow-secondary-inset: inset toRem(7) toRem(7) toRem(12) $light-soft,
+      0 0 toRem(9) $secondary;
+$box-shadow-primary-inset: inset 0 0 toRem(5) $dark-soft;

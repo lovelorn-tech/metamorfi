@@ -8,7 +8,7 @@
     justify-content: space-between;
     border-radius: g.toRem(20);
     background-color: g.$light;
-    box-shadow: g.toRem(9) g.toRem(9) g.toRem(18) g.$light-soft, g.toRem(-9) g.toRem(-9) g.toRem(18) g.$light-ultra;
+    box-shadow: g.$box-shadow-light;
 
     & > .header-left {
         display: flex;
@@ -23,11 +23,11 @@
             border: none;
             border-radius: g.toRem(14);
             background: none;
-            box-shadow: g.toRem(9) g.toRem(9) g.toRem(12) g.$light-soft, g.toRem(-9) g.toRem(-9) g.toRem(12) g.$light-ultra;
+            box-shadow: g.$box-shadow-light;
             cursor: pointer;
 
             &:active {
-                box-shadow: inset g.toRem(6) g.toRem(6) g.toRem(12) g.$light-soft, inset g.toRem(-6) g.toRem(-6) g.toRem(12) g.$light-ultra;
+                box-shadow: g.$box-shadow-light-inset;
             }
         }
 
@@ -56,10 +56,10 @@
             background: none;
             border: none;
             border-radius: g.toRem(10);
-            box-shadow: g.toRem(9) g.toRem(9) g.toRem(12) g.$light-soft, g.toRem(-9) g.toRem(-9) g.toRem(12) g.$light-ultra;
+            box-shadow: g.$box-shadow-light;
 
             &:focus{
-                box-shadow: inset g.toRem(6) g.toRem(6) g.toRem(12) g.$light-soft, inset g.toRem(-6) g.toRem(-6) g.toRem(12) g.$light-ultra;
+                box-shadow: g.$box-shadow-light-inset;
             }
         }
 
@@ -131,11 +131,11 @@
             background-color: g.$primary;
             border: none;
             border-radius: g.toRem(20);
-            box-shadow: g.toRem(7) g.toRem(7) g.toRem(12) g.$light-soft, 0 0 g.toRem(9) g.$primary;
+            box-shadow: g.$box-shadow-primary;
             cursor: pointer;
 
-            &:hover {
-                box-shadow: 0 0 g.toRem(7) g.$primary;
+            &:active {
+                box-shadow: g.$box-shadow-primary-inset;
             }
         }
     }

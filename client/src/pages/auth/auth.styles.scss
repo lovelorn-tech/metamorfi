@@ -14,8 +14,7 @@
     margin: g.toRem(10) 0;
     padding: g.toRem(10);
     border-radius: g.toRem(20);
-    box-shadow: g.toRem(9) g.toRem(9) g.toRem(18) g.$light-soft,
-      g.toRem(-9) g.toRem(-9) g.toRem(18) g.$light-ultra;
+    box-shadow: g.$box-shadow-light;
 
     & > .form-actions {
       width: 100%;
@@ -35,23 +34,20 @@
       & > .btnSubmit {
         color: g.$light-ultra;
         background-color: g.$primary;
-        box-shadow: g.toRem(7) g.toRem(7) g.toRem(12) g.$light-soft,
-          0 0 g.toRem(9) g.$primary;
+        box-shadow: g.$box-shadow-primary;
 
         &:active {
-          box-shadow: inset 0 0 g.toRem(5) g.$dark-soft;
+          box-shadow: g.$box-shadow-primary-inset;
         }
       }
 
       & > .btnClear {
         color: g.$dark;
         background: none;
-        box-shadow: g.toRem(7) g.toRem(7) g.toRem(12) g.$light-soft,
-          g.toRem(-7) g.toRem(-7) g.toRem(12) g.$light-ultra;
+        box-shadow: g.$box-shadow-light;
 
         &:active {
-          box-shadow: inset g.toRem(7) g.toRem(7) g.toRem(12) g.$light-soft,
-            g.toRem(-7) g.toRem(-7) g.toRem(12) g.$light-ultra;
+          box-shadow: g.$box-shadow-light-inset;
         }
       }
     }

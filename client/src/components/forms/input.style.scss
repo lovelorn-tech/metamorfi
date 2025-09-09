@@ -30,8 +30,7 @@
     outline: none;
     border: none;
     border-radius: g.toRem(10);
-    box-shadow: g.toRem(9) g.toRem(9) g.toRem(12) g.$light-soft,
-      g.toRem(-9) g.toRem(-9) g.toRem(12) g.$light-ultra;
+    box-shadow: g.$box-shadow-light;
   }
 
   & > select {
@@ -49,8 +48,7 @@
   & > input,
   & > textarea {
     &:focus {
-      box-shadow: inset g.toRem(6) g.toRem(6) g.toRem(12) g.$light-soft,
-        inset g.toRem(-6) g.toRem(-6) g.toRem(12) g.$light-ultra;
+      box-shadow: g.$box-shadow-light-inset;
     }
 
     &::placeholder {
