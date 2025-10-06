@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "title": "Título 1",
+      "description": "Descripción del producto 1",
+      "image": "media/thumbnails/product_1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Título 2",
+      "description": "Descripción del producto 2",
+      "image": "media/thumbnails/product_1.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Título 3",
+      "description": "Descripción del producto 3",
+      "image": "media/thumbnails/product_1.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Título 4",
+      "description": "Descripción del producto 4",
+      "image": "media/thumbnails/product_1.jpg"
+    }
+]

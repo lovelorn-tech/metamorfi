@@ -40,42 +40,6 @@
         }
     }
 
-    & > .header-form-search {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 30%;
-
-        & > input {
-            width: 100%;
-            font-size: g.toEm(16);
-            color: g.$dark-ultra;
-            padding: g.toEm(7) g.toEm(12);
-            outline: none;
-            background: none;
-            border: none;
-            border-radius: g.toRem(10);
-            box-shadow: g.$box-shadow-light;
-
-            &:focus{
-                box-shadow: g.$box-shadow-light-inset;
-            }
-        }
-
-        & > button {
-            position: absolute;
-            right: 0;
-            font-size: g.toEm(16);
-            color: g.$dark-ultra;
-            padding: g.toEm(7) g.toEm(12);
-            background: none;
-            border: none;
-            border-radius: 0 g.toRem(10) g.toRem(10) 0;
-            cursor: pointer;
-        }
-    }
-
     & > .header-right {
         display: flex;
         justify-content: flex-end;

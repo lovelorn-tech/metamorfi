@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
-  faCartShopping,
-  faSearch,
+  faCartShopping
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
@@ -19,19 +18,16 @@ export default function HeaderComponent() {
         </button>
         <Link to={"/"}>MetaMorfi</Link>
       </div>
-      <form className="header-form-search">
-        <input type="text" placeholder="Buscar producto..." />
-        <button type="submit">
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
-      </form>
+      <nav>
+
+      </nav>
       {session ? (
         <div className="header-right">
           <button>
             <FontAwesomeIcon icon={faCartShopping} />
           </button>
           <div className="header-profile-container">
-            <img src="media/avatars/avatar_1.jpg" alt="profile button" />
+            <img src="media/avatars/avatar_3.jpg" alt="profile button" />
           </div>
         </div>
       ) : (

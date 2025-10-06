@@ -22,7 +22,8 @@
         top: g.toRem(100);
         width: calc(80% - g.toRem(20));
         border-radius: g.toRem(20);
-        padding: g.toRem(10);
+        padding: g.toRem(20) g.toRem(10) g.toRem(10) g.toRem(10);
+
         box-shadow: g.toRem(9) g.toRem(9) g.toRem(18) g.$light-soft, g.toRem(-9) g.toRem(-9) g.toRem(18) g.$light-ultra;
     }
 }
