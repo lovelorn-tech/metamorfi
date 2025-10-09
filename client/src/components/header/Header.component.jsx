@@ -5,9 +5,11 @@ import {
   faBars,
   faCartShopping
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../../contexts/cart/cart.context";
 
 export default function HeaderComponent() {
+  const {cart} = useContext(CartContext);
   const [session, _setSession] = useState(true);
 
   return (
@@ -23,9 +25,10 @@ export default function HeaderComponent() {
       </nav>
       {session ? (
         <div className="header-right">
-          <button>
-            <FontAwesomeIcon icon={faCartShopping} />
-          </button>
+          <Link to={"/cart"}>
+            <span><FontAwesomeIcon icon={faCartShopping} /></span>
+            <p>{cart.length}</p>
+          </Link>
           <div className="header-profile-container">
             <img src="media/avatars/avatar_3.jpg" alt="profile button" />
           </div>

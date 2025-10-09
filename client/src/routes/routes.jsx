@@ -6,6 +6,7 @@ import AuthPage from "../pages/auth/Auth.page";
 import  ProductsPage  from "../pages/products/Products.page";
 import ProductPage from "../pages/product/Product.page";
 import HomePage from "../pages/home/Home.page";
+import CartPage from "../pages/cart/Cart.page";
 
 export const routes = [
     {
@@ -14,7 +15,8 @@ export const routes = [
         children: [
             { path: "/", element: <HomePage /> }, 
             { path: "/products", element: <ProductsPage /> }, 
-            { path: "/product/:id", element: <ProductPage/>}
+            { path: "/product/:id", element: <ProductPage/>},
+            { path: "/cart", element: <CartPage/>}
         ],
     },
     {

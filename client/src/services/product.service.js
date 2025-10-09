@@ -4,7 +4,6 @@ export const productService = {
             const response = await fetch("https://68e441c38e116898997b631d.mockapi.io/api/Food");
             if (response.ok) {
                 const result = await response.json();
-                console.log(result)
                 return result;
             }
         }catch(error) {
@@ -16,7 +15,6 @@ export const productService = {
             const response = await fetch(`https://68e441c38e116898997b631d.mockapi.io/api/User/${uid}/Food/${id}`);
             if (response.ok) {
                 const result = await response.json();
-                console.log(result);
                 return result
             }
         }catch(error) {

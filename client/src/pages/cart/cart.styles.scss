@@ -1,0 +1,69 @@
+@use "../../global.scss" as g;
+
+.cart-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .ctp-title-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    & > h1 {
+      font-size: g.toEm(26);
+      margin: 0 g.toEm(10);
+    }
+  }
+
+  & > .cart-page-content {
+    & > p {
+      text-align: center;
+      font-size: g.toEm(16);
+      color: g.$dark;
+      padding: g.toEm(10);
+    }
+  }
+
+  & > footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: none;
+    border-radius: g.toRem(10);
+    box-shadow: g.$box-shadow-light;
+    padding: g.toEm(15) g.toEm(12);
+
+    & > p {
+      font-size: g.toEm(16);
+      font-family: sans-serif;
+      font-weight: 600;
+      color: g.$dark;
+      margin-right: g.toRem(20);
+    }
+
+    & > button {
+      font-size: g.toEm(16);
+      padding: g.toEm(10) g.toEm(20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: g.toRem(20);
+      cursor: pointer;
+      background-color: g.$primary;
+      color: g.$light-ultra;
+      box-shadow: g.$box-shadow-primary;
+
+      &:active {
+        box-shadow: g.$box-shadow-primary-inset;
+      }
+
+      & > p {
+        margin-left: g.toRem(10);
+      }
+    }
+  }
+}
