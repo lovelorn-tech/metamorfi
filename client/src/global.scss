@@ -1,16 +1,16 @@
 @use "sass:math";
 
-@function toRem($value){
-    @return math.div($value, 16) + rem; 
+@function toRem($value) {
+  @return math.div($value, 16) + rem;
 }
 
-@function toEm($value){
-    @return math.div($value, 16) + em; 
+@function toEm($value) {
+  @return math.div($value, 16) + em;
 }
 
 $light: #e6eaef;
-$light-ultra: #f5f7fa; 
-$light-soft: #cfd6df; 
+$light-ultra: #f5f7fa;
+$light-soft: #cfd6df;
 $dark: #343739;
 $dark-ultra: #1b1c1e;
 $dark-soft: #3f3f3f;
@@ -19,14 +19,19 @@ $primary: #4f6ef7;
 $secondary: hsl(308 100% 51.1%);
 
 $box-shadow-light: toRem(9) toRem(9) toRem(12) $light-soft,
-          toRem(-9) toRem(-9) toRem(12) $light-ultra;
+  toRem(-9) toRem(-9) toRem(12) $light-ultra;
 $box-shadow-secondary: toRem(7) toRem(7) toRem(12) $light-soft,
-      0 0 toRem(9) $secondary;
+  0 0 toRem(9) $secondary;
 $box-shadow-primary: toRem(7) toRem(7) toRem(12) $light-soft,
-        0 0 toRem(9) $primary;
+  0 0 toRem(9) $primary;
 
 $box-shadow-light-inset: inset toRem(7) toRem(7) toRem(12) $light-soft,
-          toRem(-9) toRem(-9) toRem(12) $light-ultra;
+  toRem(-9) toRem(-9) toRem(12) $light-ultra;
 $box-shadow-secondary-inset: inset toRem(7) toRem(7) toRem(12) $light-soft,
-      0 0 toRem(9) $secondary;
+  0 0 toRem(9) $secondary;
 $box-shadow-primary-inset: inset 0 0 toRem(5) $dark-soft;
+
+
+.display-none {
+  display: none;
+}

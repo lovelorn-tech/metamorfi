@@ -35,6 +35,7 @@
     border-radius: g.toRem(10);
     box-shadow: g.$box-shadow-light;
     padding: g.toEm(15) g.toEm(12);
+    margin-top: g.toRem(10);
 
     & > p {
       font-size: g.toEm(16);
@@ -59,6 +60,14 @@
 
       &:active {
         box-shadow: g.$box-shadow-primary-inset;
+      }
+
+      &:disabled {
+        background-color: g.$light-soft;
+        color: g.$muted;
+        font-style: italic;
+        box-shadow: none;
+        cursor: auto;
       }
 
       & > p {

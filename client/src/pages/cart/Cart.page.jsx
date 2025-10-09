@@ -35,7 +35,7 @@ export default function CartPage() {
       </div>
       <footer className="ctp-bottom">
         <p>Total a pagar ${total}</p>
-        <button>Pagar</button>
+        <button disabled={cart.length <= 0}>Pagar</button>
       </footer>
     </div>
   );

@@ -5,12 +5,17 @@ import {
   faBars,
   faCartShopping
 } from "@fortawesome/free-solid-svg-icons";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../contexts/cart/cart.context";
+import { focusService } from "../../services/focus.service";
 
 export default function HeaderComponent() {
   const {cart} = useContext(CartContext);
   const [session, _setSession] = useState(true);
+
+  useEffect(() => {
+    focusService.focusAnchor(undefined, "header-as")
+  }, []);
 
   return (
     <header className="header">
@@ -20,14 +25,15 @@ export default function HeaderComponent() {
         </button>
         <Link to={"/"}>MetaMorfi</Link>
       </div>
-      <nav>
-
+      <nav className="header-nav">
+        <Link className="header-as" onClick={() => focusService.focusAnchor("/", "header-as")} to={"/"}>Inicio</Link>
+        <Link className="header-as" onClick={() => focusService.focusAnchor("/products", "header-as")} to={"/products"}>Productos</Link>
       </nav>
       {session ? (
         <div className="header-right">
-          <Link to={"/cart"}>
+          <Link className="header-as" onClick={() => focusService.focusAnchor("/cart", "header-as")} to={"/cart"}>
             <span><FontAwesomeIcon icon={faCartShopping} /></span>
-            <p>{cart.length}</p>
+            <p className={`${cart.length <= 0 && 'display-none'}`}>{cart.length}</p>
           </Link>
           <div className="header-profile-container">
             <img src="media/avatars/avatar_3.jpg" alt="profile button" />
