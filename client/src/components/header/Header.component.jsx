@@ -31,7 +31,7 @@ export default function HeaderComponent() {
       </nav>
       {session ? (
         <div className="header-right">
-          <Link className="header-as" onClick={() => focusService.focusAnchor("/cart", "header-as")} to={"/cart"}>
+          <Link className="header-as header-cart" onClick={() => focusService.focusAnchor("/cart", "header-as")} to={"/cart"}>
             <span><FontAwesomeIcon icon={faCartShopping} /></span>
             <p className={`${cart.length <= 0 && 'display-none'}`}>{cart.length}</p>
           </Link>

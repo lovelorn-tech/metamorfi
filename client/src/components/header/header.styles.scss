@@ -55,9 +55,9 @@
     }
 
     & > .target {
-        color: g.$dark;
-        font-weight: 700;
-      }
+      color: g.$dark;
+      font-weight: 700;
+    }
   }
 
   & > .header-right {
@@ -138,6 +138,20 @@
 
       &:active {
         box-shadow: g.$box-shadow-primary-inset;
+      }
+    }
+  }
+}
+
+@media (max-width: g.toRem(679.98)) {
+  .header {
+    & > .header-nav {
+      display: none;
+    }
+
+    & > .header-right {
+      & > .header-cart {
+        display: none;
       }
     }
   }
