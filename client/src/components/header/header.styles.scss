@@ -1,7 +1,8 @@
 @use "../../global.scss" as g;
 
 .header {
-  width: 100%;
+  position: fixed;
+  width: calc(80% - g.toRem(10));
   height: g.toRem(60);
   display: flex;
   align-items: center;
@@ -67,6 +68,9 @@
     & > a,
     button {
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
       font-size: g.toEm(18);
       color: g.$dark;
@@ -145,6 +149,9 @@
 
 @media (max-width: g.toRem(679.98)) {
   .header {
+    left: 10%;
+    right: 10%;
+
     & > .header-nav {
       display: none;
     }
@@ -152,6 +159,25 @@
     & > .header-right {
       & > .header-cart {
         display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: g.toRem(479.98)) {
+  .header {
+    position: fixed;
+    width: 90%;
+    left: 5%;
+    right: 5%;
+  }
+}
+
+@media (max-width: g.toRem(349.98)) {
+  .header {
+    & > .header-left {
+      & > a {
+        font-size: g.toEm(20);
       }
     }
   }

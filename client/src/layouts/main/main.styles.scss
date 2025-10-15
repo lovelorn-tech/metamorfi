@@ -39,3 +39,11 @@
         }
     }
 }
+
+@media (max-width: g.toRem(679.98)) {
+    .main-layout {
+        & > main {
+            padding-bottom: g.toRem(60);
+        }
+    }
+}

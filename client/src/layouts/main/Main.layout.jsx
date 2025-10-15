@@ -1,3 +1,4 @@
+import FooterComponent from "../../components/footer/Footer.component";
 import HeaderComponent from "../../components/header/Header.component";
 import "./main.styles.scss";
 import { Outlet } from 'react-router-dom'
@@ -9,6 +10,7 @@ export default function MainLayout() {
       <main className="main">
         <Outlet/>
       </main>
+      <FooterComponent/>
     </div>
   )
 }
