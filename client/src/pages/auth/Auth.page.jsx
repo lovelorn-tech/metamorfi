@@ -1,8 +1,16 @@
 import "./auth.styles.scss";
 import { InputComponent } from "../../components/forms/input/input.component";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfoCircle, faWarning } from "@fortawesome/free-solid-svg-icons";
+import { SessionService } from "../../services/session.service";
 
 export default function AuthPage() {
+  const [msg, setMsg] = useState({
+    valid: true,
+    value: "Si el usuario no existe, se creará automáticamente.",
+  });
+
   const [username, setUsername] = useState({
     valid: null,
     value: null,
@@ -12,9 +20,46 @@ export default function AuthPage() {
     value: null,
   });
 
+  function onsubmit(e) {
+    e.preventDefault();
+    setMsg({ valid: true, value: "Iniciando sesión, espere..." });
+    if (!username.valid || !password.valid) {
+      setMsg({
+        valid: false,
+        value:
+          "Los datos del formulario no poseen el formato correcto. Revíselos e intente nuevamente.",
+      });
+      return;
+    }
+    const user = {
+      password: password.value,
+      username: username.value,
+    };
+    const result = SessionService.setSession(user);
+    if (!result[0]) {
+      setMsg({ valid: result[0], value: result[1] });
+      return;
+    }
+    window.open("/", "_self");
+  }
+
+  function onReset() {
+    setUsername({ value: username.value, valid: null });
+    setPassword({ value: password.value, valid: null });
+    setMsg({
+      valid: true,
+      value: "Si el usuario no existe, se creará automáticamente.",
+    });
+  }
+
   return (
     <div className="auth-page">
-      <form className="auth-form">
+      <form
+        id="auth-form"
+        className="auth-form"
+        onSubmit={(e) => onsubmit(e)}
+        onReset={onReset}
+      >
         <InputComponent
           type={"text"}
           name={"login-input-username"}
@@ -48,9 +93,24 @@ export default function AuthPage() {
         />
 
         <div className="form-actions">
-            <button className="btnSubmit" type="submit">Ingresar</button>
-            <button className="btnClear" type="button">Borrar formulario</button>
+          <button className="btnSubmit" type="submit">
+            Ingresar
+          </button>
+          <button
+            className="btnClear"
+            type="button"
+            onClick={() => {
+              document.getElementById("auth-form").reset();
+            }}
+          >
+            Borrar formulario
+          </button>
         </div>
+
+        <p className="form-text-info">
+          <FontAwesomeIcon icon={msg.valid ? faInfoCircle : faWarning} />
+          <span>{msg.value}</span>
+        </p>
       </form>
     </div>
   );

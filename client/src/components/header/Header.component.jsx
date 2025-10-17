@@ -2,15 +2,16 @@ import "./header.styles.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { CartContext } from "../../contexts/cart/cart.context";
 import { focusService } from "../../services/focus.service";
 import { FocusContext } from "../../contexts/focus/focus.context";
+import { SessionContext } from "../../contexts/session/session.context";
 
 export default function HeaderComponent() {
   const { cart } = useContext(CartContext);
   const { url, setUrl } = useContext(FocusContext);
-  const [session, _setSession] = useState(true);
+  const {session} = useContext(SessionContext);
 
   useEffect(() => {
     focusService.focusAnchor(url, "header-as");

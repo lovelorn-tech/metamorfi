@@ -1,8 +1,7 @@
 @use "../../global.scss" as g;
 
 .header {
-  position: fixed;
-  width: calc(80% - g.toRem(10));
+  width: 100%;
   height: g.toRem(60);
   display: flex;
   align-items: center;
@@ -10,6 +9,7 @@
   border-radius: g.toRem(20);
   background-color: g.$light;
   box-shadow: g.$box-shadow-light;
+  overflow: hidden;
 
   & > .header-left {
     display: flex;

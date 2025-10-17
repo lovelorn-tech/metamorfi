@@ -51,5 +51,19 @@
         }
       }
     }
+
+    & > .form-text-info {
+      text-align: center;
+      font-size: g.toEm(14);
+      font-family: sans-serif;
+      font-weight: 600;
+      font-style: italic;
+      color: g.$dark;
+      padding: g.toEm(5) 0;
+
+      & > span {
+        padding-left: g.toEm(10);
+      }
+    }
   }
 }

@@ -7,24 +7,23 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    position: relative;
+    padding-bottom: g.toRem(100);
 
     & > .header-container {
-        position: absolute;
-        width: 80%;
-        top: 0;
+        position: fixed;
+        width: calc(80% - g.toRem(0));
+        max-width: g.toRem(1200);
         margin: g.toRem(20) 0;
         z-index: 100;
     }
     
     & > main {
-        position: absolute;
-        top: g.toRem(100);
         width: calc(80% - g.toRem(20));
+        margin-top: g.toRem(100);
         border-radius: g.toRem(20);
         padding: g.toRem(20) g.toRem(10) g.toRem(10) g.toRem(10);
-
         box-shadow: g.toRem(9) g.toRem(9) g.toRem(18) g.$light-soft, g.toRem(-9) g.toRem(-9) g.toRem(18) g.$light-ultra;
+        overflow: hidden;
     }
 }
 
@@ -36,14 +35,6 @@
 
         & > main {
             width: calc(90% - g.toRem(20));
-        }
-    }
-}
-
-@media (max-width: g.toRem(679.98)) {
-    .main-layout {
-        & > main {
-            padding-bottom: g.toRem(60);
         }
     }
 }

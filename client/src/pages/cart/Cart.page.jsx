@@ -12,7 +12,6 @@ export default function CartPage() {
       let t = 0;
       cart.forEach((p) => {
         t += p.price * p.quantity;
-        console.log(p)
       })
       setTotal(t.toFixed(2));
     }
