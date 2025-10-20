@@ -35,7 +35,7 @@ export const SessionService = {
     }
   },
   removeSession: () => {
-    localStorage.setItem("session", undefined);
+    localStorage.removeItem("session");
   },
   getSession: () => {
     return localStorage.getItem("session")

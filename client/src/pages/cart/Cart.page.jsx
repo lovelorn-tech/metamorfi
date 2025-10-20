@@ -10,13 +10,14 @@ export default function CartPage() {
   useEffect(() => {
     function getTotal() {
       let t = 0;
-      cart.forEach((p) => {
+      cart.products.forEach((p) => {
         t += p.price * p.quantity;
       })
       setTotal(t.toFixed(2));
+      console.log(cart.products)
     }
     getTotal();
-  });
+  }, [cart.products]);
 
   return (
     <div className="cart-page">
@@ -24,8 +25,8 @@ export default function CartPage() {
         <h1>Changuito de compras</h1>
       </div>
       <div className="cart-page-content">
-        {cart.length > 0 ? (
-          cart.map((product, index) => (
+        {cart.products.length > 0 ? (
+          cart.products.map((product, index) => (
             <CartProductComponent key={index} props={product} />
           ))
         ) : (
@@ -34,7 +35,7 @@ export default function CartPage() {
       </div>
       <footer className="ctp-bottom">
         <p>Total a pagar ${total}</p>
-        <button disabled={cart.length <= 0}>Pagar</button>
+        <button disabled={cart.products.length <= 0}>Pagar</button>
       </footer>
     </div>
   );

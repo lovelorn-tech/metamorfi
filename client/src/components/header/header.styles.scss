@@ -9,7 +9,7 @@
   border-radius: g.toRem(20);
   background-color: g.$light;
   box-shadow: g.$box-shadow-light;
-  overflow: hidden;
+  // overflow: hidden;
 
   & > .header-left {
     display: flex;
@@ -64,6 +64,13 @@
   & > .header-right {
     display: flex;
     justify-content: flex-end;
+    position: relative;
+    min-width: 20%;
+
+    & > a {
+      padding: g.toEm(10) g.toEm(15);
+      position: relative;
+    }
 
     & > a,
     button {
@@ -71,10 +78,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       font-size: g.toEm(18);
       color: g.$dark;
-      padding: g.toEm(10) g.toEm(15);
       background: none;
       border: none;
       border-radius: g.toRem(50);
@@ -119,6 +124,67 @@
         &:hover {
           transition: 0.3s;
           filter: brightness(80%);
+        }
+      }
+    }
+
+    & > .header-profile-menu {
+      list-style: none;
+      position: absolute;
+      top: g.toRem(61);
+      right: 0;
+      left: 0;
+      background-color: g.$light;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      border-radius: g.toRem(20);
+      z-index: 101;
+      padding: g.toRem(10);
+
+      & > li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        border-radius: g.toRem(20);
+
+        & > a,
+        & > button {
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          text-decoration: none;
+          white-space: nowrap;
+          font-size: g.toEm(16);
+          font-family: "Gilroy";
+          font-weight: 400;
+          color: g.$dark;
+          padding: g.toEm(10) g.toEm(20);
+          margin: g.toRem(5) 0;
+          border: none;
+          border-radius: g.toEm(20);
+          cursor: pointer;
+          overflow: hidden;
+          box-shadow: g.$box-shadow-light;
+
+          & > p {
+            position: static;
+            font-size: g.toEm(16);
+            color: g.$dark;
+            padding-left: g.toEm(10);
+            background: none;
+          }
+
+          &:hover {
+            background: none;
+          }
+
+          &:active {
+            box-shadow: g.$box-shadow-light-inset;
+          }
         }
       }
     }

@@ -44,8 +44,8 @@ export default function FooterComponent() {
       >
         <div className="ft-cart-info">
           <FontAwesomeIcon icon={faCartShopping} />
-          <p className={`${cart.length <= 0 && "display-none"}`}>
-            {cart.length}
+          <p className={`${(!cart.products || cart?.products?.length <= 0) && "display-none"}`}>
+            {cart?.products?.length}
           </p>
         </div>
         <p>Carrito</p>

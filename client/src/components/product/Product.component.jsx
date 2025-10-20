@@ -4,6 +4,7 @@ import { faCartShopping, faInfo } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart/cart.context.js";
+import { CartService } from "../../services/cart.service.js";
 
 /*
 PRODUCT STRUCTURE
@@ -21,7 +22,7 @@ PRODUCT STRUCTURE
 */
 
 export default function ProductComponent({props}) {
-  const { addProduct } = useContext(CartContext);
+  const { setCart } = useContext(CartContext);
 
   function add() {
     const product = {
@@ -33,7 +34,8 @@ export default function ProductComponent({props}) {
       description: props.description,
       image: props.image,
     }
-    addProduct(product);
+    CartService.addProduct(product);
+    setCart();
   }
 
   return (

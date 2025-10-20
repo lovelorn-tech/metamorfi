@@ -1,12 +1,6 @@
 import "./cartProduct.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowRight,
-  faCartShopping,
-  faChevronLeft,
-  faChevronRight,
-  faCross,
-  faInfo,
   faMinus,
   faPlus,
   faX,
@@ -14,6 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/cart/cart.context.js";
+import { CartService } from "../../services/cart.service.js";
 
 /*
 PRODUCT STRUCTURE
@@ -31,8 +26,8 @@ PRODUCT STRUCTURE
 */
 
 export default function CartProductComponent({ props }) {
-  const { cart, removeProduct, updateProduct } = useContext(CartContext);
-  const [product, setProduct] = useState(cart.find(x => x.id === props.id));
+  const { cart, setCart } = useContext(CartContext);
+  const [product, setProduct] = useState(cart.products.find(x => x.id === props.id));
 
   function deleteProduct() {
     const pproduct = {
@@ -44,8 +39,9 @@ export default function CartProductComponent({ props }) {
       description: props.description,
       image: props.image,
     };
-    removeProduct(pproduct);
-    setProduct(cart.find(x => x.id === props.id));
+    CartService.removeProduct(pproduct);
+    setCart();
+    setProduct(pproduct);
   }
 
   function update(value) {
@@ -58,8 +54,9 @@ export default function CartProductComponent({ props }) {
       description: props.description,
       image: props.image,
     };
-    updateProduct(pproduct);
-    setProduct(cart.find(x => x.id === props.id));
+    CartService.updateProduct(pproduct);
+    setCart();
+    setProduct(pproduct);
   }
 
   return (

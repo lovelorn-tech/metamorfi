@@ -1,21 +1,32 @@
 import "./header.styles.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faCartShopping,
+  faArrowRightFromBracket,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import { useContext, useEffect } from "react";
 import { CartContext } from "../../contexts/cart/cart.context";
 import { focusService } from "../../services/focus.service";
+import { SessionService } from "../../services/session.service";
 import { FocusContext } from "../../contexts/focus/focus.context";
 import { SessionContext } from "../../contexts/session/session.context";
 
 export default function HeaderComponent() {
   const { cart } = useContext(CartContext);
   const { url, setUrl } = useContext(FocusContext);
-  const {session} = useContext(SessionContext);
+  const { session, setSession } = useContext(SessionContext);
 
   useEffect(() => {
     focusService.focusAnchor(url, "header-as");
   }, [url]);
+
+  function logout() {
+    SessionService.removeSession();
+    setSession();
+  }
 
   return (
     <header className="header">
@@ -47,13 +58,35 @@ export default function HeaderComponent() {
             <span>
               <FontAwesomeIcon icon={faCartShopping} />
             </span>
-            <p className={`${cart.length <= 0 && "display-none"}`}>
-              {cart.length}
+            <p className={`${cart?.products.length <= 0 && "display-none"}`}>
+              {cart?.products.length}
             </p>
           </Link>
-          <div className="header-profile-container">
+          <button
+            // onClick={() => dropDownMenu.setVisible("header-right-dropdown")}
+            className="header-profile-container hide-mobile-768"
+          >
             <img src="media/avatars/avatar_3.jpg" alt="profile button" />
-          </div>
+          </button>
+          <ul
+            tabIndex={0}
+            // onBlur={(e) => dropDownMenu.hide(e, "header-right-dropdown")}
+            id="header-right-dropdown"
+            className="header-profile-menu"
+          >
+            <li>
+              <Link to={`/channel/`}>
+                <FontAwesomeIcon icon={faUser} />
+                <p>Perfil</p>
+              </Link>
+            </li>
+            <li>
+              <button onClick={logout}>
+                <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                <p>Cerrar sesión</p>
+              </button>
+            </li>
+          </ul>
         </div>
       ) : (
         <div className="header-right-off">
