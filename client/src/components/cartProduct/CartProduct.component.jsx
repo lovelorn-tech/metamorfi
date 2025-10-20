@@ -41,7 +41,6 @@ export default function CartProductComponent({ props }) {
     };
     CartService.removeProduct(pproduct);
     setCart();
-    setProduct(pproduct);
   }
 
   function update(value) {

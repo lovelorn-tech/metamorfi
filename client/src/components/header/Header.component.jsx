@@ -26,6 +26,7 @@ export default function HeaderComponent() {
   function logout() {
     SessionService.removeSession();
     setSession();
+    window.open("/", "_self");
   }
 
   return (

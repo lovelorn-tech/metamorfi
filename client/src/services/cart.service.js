@@ -62,9 +62,13 @@ export const CartService = {
 
 function save(cart) {
   const carts = JSON.parse(localStorage.getItem("carts")) ?? [];
-  const nCarts = carts.map((x) => x.user !== cart.user || cart);
+  carts.forEach((x) => {
+    if (x.user === cart.user) {
+      x.products = cart.products;
+    }
+  });
   localStorage.removeItem("carts");
-  localStorage.setItem("carts", JSON.stringify(nCarts));
+  localStorage.setItem("carts", JSON.stringify(carts));
 }
 
 function get() {

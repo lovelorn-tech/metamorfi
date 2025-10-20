@@ -1,11 +1,15 @@
 import "./auth.styles.scss";
 import { InputComponent } from "../../components/forms/input/input.component";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle, faWarning } from "@fortawesome/free-solid-svg-icons";
 import { SessionService } from "../../services/session.service";
+import {SessionContext} from "../../contexts/session/session.context";
+import { Navigate } from "react-router-dom";
 
 export default function AuthPage() {
+  const {session} = useContext(SessionContext);
+
   const [msg, setMsg] = useState({
     valid: true,
     value: "Si el usuario no existe, se creará automáticamente.",
@@ -50,6 +54,10 @@ export default function AuthPage() {
       valid: true,
       value: "Si el usuario no existe, se creará automáticamente.",
     });
+  }
+
+  if (session) {
+    return <Navigate to={"/"}/>
   }
 
   return (

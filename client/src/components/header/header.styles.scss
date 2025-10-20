@@ -64,7 +64,6 @@
   & > .header-right {
     display: flex;
     justify-content: flex-end;
-    position: relative;
     min-width: 20%;
 
     & > a {
@@ -131,9 +130,8 @@
     & > .header-profile-menu {
       list-style: none;
       position: absolute;
-      top: g.toRem(61);
+      top: g.toRem(70);
       right: 0;
-      left: 0;
       background-color: g.$light;
       display: flex;
       flex-direction: column;
@@ -142,6 +140,7 @@
       border-radius: g.toRem(20);
       z-index: 101;
       padding: g.toRem(10);
+      box-shadow: g.$box-shadow-light;
 
       & > li {
         display: flex;
