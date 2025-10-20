@@ -34,6 +34,14 @@
         box-shadow: g.$box-shadow-light-inset;
       }
 
+      &:disabled {
+        background-color: g.$light-soft;
+        color: g.$muted;
+        font-style: italic;
+        box-shadow: none;
+        cursor: auto;
+      }
+
       & > p {
         margin-left: g.toEm(10);
       }

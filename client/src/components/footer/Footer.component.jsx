@@ -10,8 +10,11 @@ import { useContext, useEffect } from "react";
 import { CartContext } from "../../contexts/cart/cart.context";
 import { focusService } from "../../services/focus.service";
 import { FocusContext } from "../../contexts/focus/focus.context";
+import { SessionContext } from "../../contexts/session/session.context";
 
 export default function FooterComponent() {
+  const { session } = useContext(SessionContext);
+
   const { cart } = useContext(CartContext);
   const { url, setUrl } = useContext(FocusContext);
 
@@ -21,11 +24,7 @@ export default function FooterComponent() {
 
   return (
     <footer className="footer">
-      <Link
-        to="/"
-        className="footer-as"
-        onClick={() => setUrl("/")}
-      >
+      <Link to="/" className="footer-as" onClick={() => setUrl("/")}>
         <FontAwesomeIcon icon={faHome} />
         <p>Inicio</p>
       </Link>
@@ -37,21 +36,21 @@ export default function FooterComponent() {
         <FontAwesomeIcon icon={faBox} />
         <p>Productos</p>
       </Link>
-      <Link
-        to="/cart"
-        className="footer-as"
-        onClick={() => setUrl("/cart")}
-      >
+      <Link to={session ? "/cart" : "/auth"} className="footer-as" onClick={() => setUrl("/cart")}>
         <div className="ft-cart-info">
           <FontAwesomeIcon icon={faCartShopping} />
-          <p className={`${(!cart.products || cart?.products?.length <= 0) && "display-none"}`}>
+          <p
+            className={`${
+              (!cart.products || cart?.products?.length <= 0) && "display-none"
+            }`}
+          >
             {cart?.products?.length}
           </p>
         </div>
         <p>Carrito</p>
       </Link>
       <Link
-        to="/profile"
+        to={session ? "/profile" : "/auth"}
         className="footer-as"
         onClick={() => setUrl("/profile")}
       >

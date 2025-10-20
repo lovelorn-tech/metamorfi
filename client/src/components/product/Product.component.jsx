@@ -4,6 +4,7 @@ import { faCartShopping, faInfo } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart/cart.context.js";
+import { SessionContext } from "../../contexts/session/session.context.js";
 import { CartService } from "../../services/cart.service.js";
 
 /*
@@ -21,36 +22,55 @@ PRODUCT STRUCTURE
 
 */
 
-export default function ProductComponent({props}) {
+export default function ProductComponent({ props }) {
+  const { session } = useContext(SessionContext);
+
   const { setCart } = useContext(CartContext);
 
   function add() {
     const product = {
-      id : props.id,
+      id: props.id,
       userId: props.id,
       quantity: 1,
       price: props.price,
       title: props.title,
       description: props.description,
       image: props.image,
-    }
+    };
     CartService.addProduct(product);
     setCart();
   }
 
   return (
     <div className="product">
-        <div className="product-thumbnail-container">
-            <img src={props.image} alt="product name"/>
+      <div className="product-thumbnail-container">
+        <img src={props.image} alt="product name" />
+      </div>
+      <div className="product-info">
+        <h3>{props.title}</h3>
+        <p>{props.description}</p>
+        <div className="product-actions">
+          {session ? (
+            <button onClick={add} className="product-cart-btn">
+              <FontAwesomeIcon icon={faCartShopping} />
+              <p>Agregar al carrito</p>
+            </button>
+          ) : (
+            <Link to={"/auth"} className="product-cart-btn">
+              <FontAwesomeIcon icon={faCartShopping} />
+              <p>Agregar al carrito</p>
+            </Link>
+          )}
+
+          <Link
+            to={`/product/${props.id}?uid=${props.UserId}`}
+            className="product-info-btn"
+          >
+            <FontAwesomeIcon icon={faInfo} />
+            <p>Saber más</p>
+          </Link>
         </div>
-        <div className="product-info">
-            <h3>{props.title}</h3>
-            <p>{props.description}</p>
-            <div className="product-actions">
-                <button onClick={add} className="product-cart-btn"><FontAwesomeIcon icon={faCartShopping}/><p>Agregar al carrito</p></button>
-                <Link to={`/product/${props.id}?uid=${props.UserId}`} className="product-info-btn"><FontAwesomeIcon icon={faInfo}/><p>Saber más</p></Link>
-            </div>
-        </div>
+      </div>
     </div>
-  )
+  );
 }
