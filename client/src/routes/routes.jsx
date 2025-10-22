@@ -7,6 +7,7 @@ import  ProductsPage  from "../pages/products/Products.page";
 import ProductPage from "../pages/product/Product.page";
 import HomePage from "../pages/home/Home.page";
 import CartPage from "../pages/cart/Cart.page";
+import PaymentPage from "../pages/payment/Payment.page";
 
 export const routes = [
     {
@@ -16,7 +17,8 @@ export const routes = [
             { path: "/", element: <HomePage /> }, 
             { path: "/products", element: <ProductsPage /> }, 
             { path: "/product/:id", element: <ProductPage/>},
-            { path: "/cart", element: <CartPage/>}
+            { path: "/cart", element: <CartPage/>},
+            { path: "/payment", element: <PaymentPage/>}
         ],
     },
     {

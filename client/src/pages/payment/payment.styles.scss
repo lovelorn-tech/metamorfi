@@ -1,12 +1,12 @@
 @use "../../global.scss" as g;
 
-.cart-page {
+.payment-page {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
-  .ctp-title-bar {
+  & > .pyp-title-bar {
     width: 100%;
     display: flex;
     align-items: center;
@@ -16,6 +16,7 @@
     & > h1 {
       font-size: g.toEm(26);
       margin: 0 g.toEm(10);
+      color: g.$dark;
     }
 
     & > a {
@@ -42,42 +43,45 @@
     }
   }
 
-  & > .cart-page-content {
-    & > p {
-      text-align: center;
-      font-size: g.toEm(16);
-      color: g.$dark;
-      padding: g.toEm(10);
+  & > .products-container {
+    list-style: none;
+    margin: g.toRem(10);
+
+    & > li {
+      padding: g.toEm(5) 0;
+
+      & > p {
+        font-size: g.toEm(16);
+        color: g.$dark;
+
+        & > span {
+          font-weight: 600;
+        }
+      }
     }
   }
 
-  & > footer {
+  & > .payment-actions {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    background: none;
-    border-radius: g.toRem(10);
-    box-shadow: g.$box-shadow-light;
-    padding: g.toEm(15) g.toEm(12);
-    margin-top: g.toRem(10);
+    justify-content: center;
 
-    & > p {
+    & > button,
+    a {
+      text-decoration: none;
       font-size: g.toEm(16);
-      font-family: sans-serif;
-      font-weight: 600;
-      color: g.$dark;
-      margin-right: g.toRem(20);
-    }
-
-    & > button {
-      font-size: g.toEm(16);
-      padding: g.toEm(10) g.toEm(20);
+      padding: g.toEm(10) g.toEm(15);
+      margin: 0 g.toRem(10);
       display: flex;
       align-items: center;
       justify-content: center;
       border: none;
       border-radius: g.toRem(20);
       cursor: pointer;
+
+      & > p {
+        margin-left: g.toRem(10);
+      }
 
       &:disabled {
         background-color: g.$light-soft;
@@ -86,21 +90,15 @@
         box-shadow: none;
         cursor: auto;
       }
-
-      & > p {
-        padding-left: g.toRem(10);
-      }
     }
 
-    & > .btn-clear {
-      font-weight: 600;
-      color: g.$dark;
-      background: none;
-      box-shadow: g.$box-shadow-light;
-      margin-right: g.toRem(20);
+    & > .btn-download {
+      background-color: g.$primary;
+      color: g.$light-ultra;
+      box-shadow: g.$box-shadow-primary;
 
       &:active {
-        box-shadow: g.$box-shadow-light-inset;
+        box-shadow: g.$box-shadow-primary-inset;
       }
 
       &:disabled {
@@ -108,13 +106,13 @@
       }
     }
 
-    & > .btn-pay {
-      background-color: g.$primary;
-      color: g.$light-ultra;
-      box-shadow: g.$box-shadow-primary;
+    & > .btn-home {
+      background: none;
+      color: g.$dark;
+      box-shadow: g.$box-shadow-light;
 
       &:active {
-        box-shadow: g.$box-shadow-primary-inset;
+        box-shadow: g.$box-shadow-light-inset;
       }
 
       &:disabled {

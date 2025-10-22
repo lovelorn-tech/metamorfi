@@ -1,17 +1,19 @@
 import { useContext, useEffect, useState } from "react";
+import { Link, Navigate,  useNavigate } from "react-router-dom";
 import "./cart.styles.scss";
 import { CartContext } from "../../contexts/cart/cart.context.js";
 import CartProductComponent from "../../components/cartProduct/CartProduct.component.jsx";
 import { faReply } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, Navigate } from "react-router-dom";
 import { CartService } from "../../services/cart.service.js";
 import { SessionContext } from "../../contexts/session/session.context.js";
 
+
 export default function CartPage() {
+  const navigate = useNavigate();
   const {session} = useContext(SessionContext);
 
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart, setPay } = useContext(CartContext);
   const [total, setTotal] = useState(0);
 
   function clearCart() {
@@ -20,7 +22,8 @@ export default function CartPage() {
   }
 
   function pay() {
-    
+    setPay(true);
+    navigate("/payment");
   }
 
   useEffect(() => {

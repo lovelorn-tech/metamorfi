@@ -13,6 +13,7 @@ import { focusService } from "../../services/focus.service";
 import { SessionService } from "../../services/session.service";
 import { FocusContext } from "../../contexts/focus/focus.context";
 import { SessionContext } from "../../contexts/session/session.context";
+import { DropDownService } from "../../services/dropdown.service";
 
 export default function HeaderComponent() {
   const { cart } = useContext(CartContext);
@@ -64,14 +65,14 @@ export default function HeaderComponent() {
             </p>
           </Link>
           <button
-            // onClick={() => dropDownMenu.setVisible("header-right-dropdown")}
+            onClick={() => DropDownService.setVisible("header-right-dropdown")}
             className="header-profile-container hide-mobile-768"
           >
             <img src="media/avatars/avatar_3.jpg" alt="profile button" />
           </button>
           <ul
             tabIndex={0}
-            // onBlur={(e) => dropDownMenu.hide(e, "header-right-dropdown")}
+            onBlur={(e) => DropDownService.hide(e, "header-right-dropdown")}
             id="header-right-dropdown"
             className="header-profile-menu"
           >

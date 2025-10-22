@@ -1,14 +1,26 @@
 import "./product.styles.scss";
 import { faCartShopping, faReply } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import { productService } from "../../services/product.service";
+import { CartService } from "../../services/cart.service.js";
+import { CartContext } from "../../contexts/cart/cart.context.js";
+import { SessionContext } from "../../contexts/session/session.context.js";
 
 export default function ProductPage() {
   const { id } = useParams();
   const uid = useSearchParams()[0].get("uid");
+
+  const { session } = useContext(SessionContext);
+
+  const { setCart } = useContext(CartContext);
   const [product, _setProduct] = useState(undefined);
+
+  function add() {
+    CartService.addProduct(product);
+    setCart();
+  }
 
   useEffect(() => {
     const getProducts = async () => {
@@ -35,10 +47,17 @@ export default function ProductPage() {
           <div className="pp-info">
             <p>{product.description}</p>
             <div className="pp-actions">
-              <button>
-                <FontAwesomeIcon icon={faCartShopping} />
-                <p>Agregar al carrito</p>
-              </button>
+              {session ? (
+                <button onClick={add}>
+                  <FontAwesomeIcon icon={faCartShopping} />
+                  <p>Agregar al carrito</p>
+                </button>
+              ) : (
+                <Link to={"/auth"}>
+                  <FontAwesomeIcon icon={faCartShopping} />
+                  <p>Agregar al carrito</p>
+                </Link>
+              )}
             </div>
           </div>
         </div>

@@ -82,7 +82,8 @@
                 align-items: center;
                 justify-content: center;
 
-                & > button {
+                & > button, a {
+                    text-decoration: none;
                     font-size: g.toEm(16);
                     color: g.$light-ultra;
                     padding: g.toEm(10) g.toEm(15);
