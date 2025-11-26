@@ -20,5 +20,23 @@ export const productService = {
         }catch(error) {
             console.log(error);
         }
+    },
+    create: async (product) => {
+        try{
+            const response = await fetch(`https://68e441c38e116898997b631d.mockapi.io/api/User/${product.uid}/Food`, {
+                method: "POST",
+                body: {
+                    product: product.title,
+                    price: product.price,
+                    description: product.description
+                }
+            });
+            if (response.ok) {
+                const result = await response.json();
+                return result
+            }
+        }catch(error) {
+            console.log(error);
+        }
     }
 }

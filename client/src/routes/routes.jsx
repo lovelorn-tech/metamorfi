@@ -8,6 +8,7 @@ import ProductPage from "../pages/product/Product.page";
 import HomePage from "../pages/home/Home.page";
 import CartPage from "../pages/cart/Cart.page";
 import PaymentPage from "../pages/payment/Payment.page";
+import AddProductPage from "../pages/addProduct/AddProduct.page";
 
 export const routes = [
     {
@@ -18,7 +19,8 @@ export const routes = [
             { path: "/products", element: <ProductsPage /> }, 
             { path: "/product/:id", element: <ProductPage/>},
             { path: "/cart", element: <CartPage/>},
-            { path: "/payment", element: <PaymentPage/>}
+            { path: "/payment", element: <PaymentPage/>},
+            { path: "addproduct", element: <AddProductPage/> }
         ],
     },
     {

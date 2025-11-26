@@ -6,6 +6,7 @@ import {
   faCartShopping,
   faArrowRightFromBracket,
   faUser,
+  faGear,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useEffect } from "react";
 import { CartContext } from "../../contexts/cart/cart.context";
@@ -80,6 +81,12 @@ export default function HeaderComponent() {
               <Link to={`/channel/`}>
                 <FontAwesomeIcon icon={faUser} />
                 <p>Perfil</p>
+              </Link>
+            </li>
+            <li>
+              <Link to={`/addproduct`}>
+                <FontAwesomeIcon icon={faGear} />
+                <p>Gestor de productos</p>
               </Link>
             </li>
             <li>
