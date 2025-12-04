@@ -2,6 +2,7 @@ import "./products.styles.scss";
 import { faFilter, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ProductComponent from "../../components/product/Product.component";
+import GalleryComponent from "../../components/gallery/Gallery.component";
 import { useEffect, useState } from "react";
 import { productService } from "../../services/product.service";
 
@@ -48,16 +49,7 @@ export default function ProductsPage() {
         </form>
       </div>
       <div className="hp-products-container">
-        {products.length > 0 ? (
-          products.map((product, index) => (
-            <ProductComponent props={product} key={index} />
-          ))
-        ) : (
-          <p>
-            No se ha encontrado ningún producto. Intente actualziar los filtros
-            de búsqueda.
-          </p>
-        )}
+        <GalleryComponent props={products}/>
       </div>
     </div>
   );

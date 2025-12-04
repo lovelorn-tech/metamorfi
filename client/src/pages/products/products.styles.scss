@@ -87,17 +87,9 @@
 
   & > .hp-products-container {
     width: 100%;
-    margin: g.toRem(20) 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(g.toRem(350), 1fr));
-    gap: g.toRem(15);
-
-    & > p {
-      text-align: center;
-      font-size: g.toEm(16);
-      color: g.$dark;
-      padding: g.toEm(10);
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 }
 
